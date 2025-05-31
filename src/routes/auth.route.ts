@@ -9,11 +9,12 @@ import {
   changePassword,
   forgotPassword,
 } from "../controllers/auth.controller";
+import { errorHandler } from "../error-handler";
 
 const authRoutes: Router = Router();
 
 authRoutes.post("/login", login);
-authRoutes.post("/register", register);
+authRoutes.post("/register", errorHandler(register));
 authRoutes.post("/logout", logout);
 authRoutes.get("/profile", getUserProfile);
 authRoutes.put("/profile", updateUserProfile);
