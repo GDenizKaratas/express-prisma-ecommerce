@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { ErrorCode, HttpExeption } from "./helpers/root";
-import { InternalException } from "./helpers/internal-exeptions";
+import { ErrorCode, HttpExeption } from "./exceptions/root";
+import { InternalException } from "./exceptions/internal-exeptions";
 
 export const errorHandler = (method: Function) => {
   return async (req: Request, res: Response, next: NextFunction) => {

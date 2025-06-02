@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { HttpExeption } from "../helpers/root";
+import { HttpExeption } from "../exceptions/root";
 
 export const errorMiddleware = (
   error: HttpExeption,
