@@ -6,24 +6,18 @@ import {
   addAddress,
   deleteAddress,
   listAddress,
+  updateUser,
 } from "../controllers/users.controller";
 
 const userRoutes: Router = Router();
 
-userRoutes.post(
-  "/address",
-  [authMiddleware, adminMiddleware],
-  errorHandler(addAddress)
-);
+userRoutes.post("/address", [authMiddleware], errorHandler(addAddress));
 userRoutes.delete(
   "/address/:id",
-  [authMiddleware, adminMiddleware],
+  [authMiddleware],
   errorHandler(deleteAddress)
 );
-userRoutes.get(
-  "/address",
-  [authMiddleware, adminMiddleware],
-  errorHandler(listAddress)
-);
+userRoutes.get("/address", [authMiddleware], errorHandler(listAddress));
+userRoutes.put("/", [authMiddleware], errorHandler(updateUser));
 
 export default userRoutes;
