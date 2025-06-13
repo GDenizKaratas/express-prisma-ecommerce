@@ -11,21 +11,9 @@ import {
 
 const cartRoutes: Router = Router();
 
-cartRoutes.get("/", [authMiddleware, adminMiddleware], errorHandler(getCart));
-cartRoutes.post(
-  "/",
-  [authMiddleware, adminMiddleware],
-  errorHandler(addItemToCart)
-);
-cartRoutes.delete(
-  "/:id",
-  [authMiddleware, adminMiddleware],
-  errorHandler(deleteItemFromCart)
-);
-cartRoutes.put(
-  "/:id",
-  [authMiddleware, adminMiddleware],
-  errorHandler(changeQuantity)
-);
+cartRoutes.get("/", [authMiddleware], errorHandler(getCart));
+cartRoutes.post("/", [authMiddleware], errorHandler(addItemToCart));
+cartRoutes.delete("/:id", [authMiddleware], errorHandler(deleteItemFromCart));
+cartRoutes.put("/:id", [authMiddleware], errorHandler(changeQuantity));
 
 export default cartRoutes;

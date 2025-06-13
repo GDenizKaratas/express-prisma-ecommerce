@@ -71,6 +71,7 @@ model Product {
   cartItems CartItem[]
   orders OrderProduct[]
 
+  @@fulltext([name,description, tags])
 
   @@map("products")
 }
@@ -95,6 +96,7 @@ model Order {
   userId Int
   user User @relation(fields: [userId], references: [id])
   netAmount Decimal
+  status OrderEventStatus @default(PENDING)
   address String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
